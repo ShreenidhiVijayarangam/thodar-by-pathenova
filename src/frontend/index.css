@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand colors in OKLCH raw L C H */
+    /* --color-bg: #FAFAFA → oklch(0.98 0 0) */
+    /* --color-surface: #FFFFFF → oklch(1 0 0) */
+    /* --color-text-primary: #1C1C1E → oklch(0.14 0 0) */
+    /* --color-text-secondary: #4A4A4A → oklch(0.35 0 0) */
+    /* --color-text-muted: #8A8A8E → oklch(0.60 0 0) */
+    /* --color-teal: #3D8B82 → oklch(0.57 0.08 186) */
+    /* --color-teal-light: #EAF4F2 → oklch(0.95 0.02 186) */
+    /* --color-blue: #1A5FA8 → oklch(0.43 0.12 253) */
+    /* --color-blue-light: #EBF3FC → oklch(0.96 0.02 240) */
+    /* --color-border: #E5E5E7 → oklch(0.91 0 0) */
+    /* --color-separator: #D1D1D6 → oklch(0.85 0 0) */
+
+    --radius: 0;
+
+    /* shadcn semantic tokens */
+    --background: 0.98 0 0;
+    --foreground: 0.14 0 0;
+    --card: 1 0 0;
+    --card-foreground: 0.14 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.14 0 0;
+    --primary: 0.57 0.08 186;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.95 0.02 186;
+    --secondary-foreground: 0.57 0.08 186;
+    --muted: 0.96 0 0;
+    --muted-foreground: 0.60 0 0;
+    --accent: 0.96 0.02 240;
+    --accent-foreground: 0.43 0.12 253;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.91 0 0;
+    --input: 0.91 0 0;
+    --ring: 0.57 0.08 186;
+    --chart-1: 0.57 0.08 186;
+    --chart-2: 0.43 0.12 253;
+    --chart-3: 0.14 0 0;
+    --chart-4: 0.85 0 0;
+    --chart-5: 0.60 0 0;
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.14 0 0;
+    --sidebar-primary: 0.57 0.08 186;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.95 0.02 186;
+    --sidebar-accent-foreground: 0.57 0.08 186;
+    --sidebar-border: 0.91 0 0;
+    --sidebar-ring: 0.57 0.08 186;
+
+    /* Thodar brand tokens */
+    --thodar-bg: oklch(0.98 0 0);
+    --thodar-surface: oklch(1 0 0);
+    --thodar-text-primary: oklch(0.14 0 0);
+    --thodar-text-secondary: oklch(0.35 0 0);
+    --thodar-text-muted: oklch(0.60 0 0);
+    --thodar-teal: oklch(0.57 0.08 186);
+    --thodar-teal-light: oklch(0.95 0.02 186);
+    --thodar-blue: oklch(0.43 0.12 253);
+    --thodar-blue-light: oklch(0.96 0.02 240);
+    --thodar-border: oklch(0.91 0 0);
+    --thodar-separator: oklch(0.85 0 0);
+    --thodar-charcoal: oklch(0.14 0 0);
+    --thodar-footer-bg: oklch(0.14 0 0);
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--thodar-bg);
+    color: var(--thodar-text-primary);
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  }
+
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Scroll-triggered fade in animation — refined travel distance for clinical restraint */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Thodar specific text colors */
+  .text-thodar-primary {
+    color: var(--thodar-text-primary);
+  }
+
+  .text-thodar-secondary {
+    color: var(--thodar-text-secondary);
+  }
+
+  .text-thodar-muted {
+    color: var(--thodar-text-muted);
+  }
+
+  .text-thodar-teal {
+    color: var(--thodar-teal);
+  }
+
+  .text-thodar-blue {
+    color: var(--thodar-blue);
+  }
+
+  .bg-thodar-bg {
+    background-color: var(--thodar-bg);
+  }
+
+  .bg-thodar-surface {
+    background-color: var(--thodar-surface);
+  }
+
+  .bg-thodar-teal-light {
+    background-color: var(--thodar-teal-light);
+  }
+
+  .bg-thodar-footer {
+    background-color: var(--thodar-footer-bg);
+  }
+
+  .border-thodar {
+    border-color: var(--thodar-border);
+  }
+
+  .border-thodar-teal {
+    border-color: var(--thodar-teal);
+  }
+
+  .border-thodar-separator {
+    border-color: var(--thodar-separator);
+  }
+
+  .summary-card:hover {
+    border-color: var(--thodar-teal) !important;
+  }
+
+  /* Hide scrollbar for nav overflow */
+  .nav-links-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .nav-links-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Scroll offset so sticky nav does not cover section headings */
+section[id],
+div[id] {
+  scroll-margin-top: 68px;
+}
